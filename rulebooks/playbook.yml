@@ -9,11 +9,4 @@
      - name: "Run job template"
        contition: event.target_os == "linux"
        action:
-         run_job_template:
-            name: hello
-            organization: Default
-            job_args:
-              extra_vars:
-                 hello: Nikhil
-            retries: 1
-            delay: 10
+         debug:
