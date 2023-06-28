@@ -7,7 +7,7 @@
 
    rules:
      - name: "Run job template"
-       contition: event.i == 1
+       contition: event.target_os == "linux"
        action:
          run_job_template:
             name: hello
