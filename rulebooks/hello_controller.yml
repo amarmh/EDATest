@@ -8,5 +8,9 @@
    rules:
      - name: "Run job template"
        contition: event.target_os == "linux"
-       action:
-         debug:
+       actions:
+         run_job_template:
+           name: Git-Playbook
+           organization: Default
+           retries: 1
+           delay: 10
