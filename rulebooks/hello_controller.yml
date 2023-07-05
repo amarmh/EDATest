@@ -7,7 +7,7 @@
 
    rules:
      - name: "Run job template"
-       contition: event.target_os == "linux"
+#       contition: event.target_os == "linux"
        actions:
          run_job_template:
            name: Git-Playbook
