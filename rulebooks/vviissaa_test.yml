@@ -3,7 +3,7 @@
   hosts: all
   sources:
     - ansible.eda.tick:
-        delay: 60
+        delay: 300
 
   rules:
     - name: test test
