@@ -1,3 +1,4 @@
+---
 - name: Test run job template
   hosts: all
   sources:
