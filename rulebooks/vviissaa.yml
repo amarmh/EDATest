@@ -10,4 +10,4 @@
         actions:
         - run_job_template:
                 name: "EDA - test job"
-                organization: "Systems Architecture & Engineering wrong"
+                organization: "Default"
