@@ -1,0 +1,11 @@
+---
+- name: Nexus Automatic Deployment from JFrog - File watchdog
+  hosts: localhost
+  sources:
+    - name: Monitor JFrog folder for any changes or files deployed - watchdog - Modified for standard folder
+      ansible.eda.file_watch:
+        #yes path: "/tmp/jfrog_monitor/standard/"
+        path: "/tmp/jfrog_monitor/standard/"
+        recursive: true
+        #put_nowait: 0
+        ignore_regexes: ['.*\.pytest.*', '.*__pycache__.*', '.*/.git.*']
