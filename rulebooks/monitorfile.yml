@@ -9,3 +9,20 @@
         recursive: true
         #put_nowait: 0
         ignore_regexes: ['.*\.pytest.*', '.*__pycache__.*', '.*/.git.*']
+
+
+  rules:
+##---------------------------Folder Monitor Starts----------------------------  
+    - name: Monitoring complete folder for any changes in file !!!
+      condition: event.type == "FileModifiedEvent"
+      action:
+        run_workflow_template:
+          name: test
+          organization: Default
+          post_events: true
+          job_args:
+            extra_vars:
+              env: dev
+              
+            
+##---------------------------Folder Monitor Starts----------------------------
