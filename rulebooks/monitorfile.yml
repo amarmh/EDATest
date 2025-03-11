@@ -7,6 +7,9 @@
         #yes path: "/tmp/jfrog_monitor/standard/"
         path: "/opt/"
         recursive: true
+        put_nowait: false  # Makes queue insertion wait instead of failing when full
+        debounce: 3  # Wait 3 seconds before processing similar consecutive events
+        rate_limit_per_minute: 30  # Limit to 30 events per minute
         #put_nowait: 0
         ignore_regexes: ['.*\.pytest.*', '.*__pycache__.*', '.*/.git.*']
 
