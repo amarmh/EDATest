@@ -5,7 +5,7 @@
     - name: Monitor JFrog folder for any changes or files deployed - watchdog - Modified for standard folder
       ansible.eda.file_watch:
         #yes path: "/tmp/jfrog_monitor/standard/"
-        path: "/tmp/"
+        path: "/opt/"
         recursive: true
         #put_nowait: 0
         ignore_regexes: ['.*\.pytest.*', '.*__pycache__.*', '.*/.git.*']
