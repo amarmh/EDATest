@@ -6,8 +6,10 @@
         paths:
           - /opt/
   rules:
-    - name: Notify on file changes
-      condition: event.type == "modified" or event.type == "created" or event.type == "deleted"
+##---------------------------Folder Monitor Starts----------------------------  
+    - name: Monitoring complete folder for any changes in file !!!
+      condition: event.type == "FileModifiedEvent"
       action:
-        run_playbook:
-          name: notify_changes.yml
+        run_job_template:
+          name: Demo Job Template
+          organization: Default
