@@ -3,14 +3,14 @@
   hosts: localhost
   sources:
     - ansible.eda.file_watch:
-        path: "/opt/"
+        path: /opt/
         recursive: true
-
+        debounce_seconds: 2  # Prevents event flooding
   rules:
-##---------------------------Folder Monitor Starts----------------------------  
-    - name: Monitoring complete folder for any changes in file !!!
-      condition: event.type in ["modified", "created", "deleted"]
+    - name: Notify on file changes
+      condition: >
+        event.type in ["modified", "created", "deleted"]
+        and not event.src_path.endswith(('.swp', '.tmp', '.log'))  # Ignore temp files
       action:
         run_job_template:
           name: Demo Job Template
-          organization: Default
