@@ -4,7 +4,7 @@
   sources:
     - ansible.eda.file_watch:
         path: /mnt/
-        recursive: true
+        recursive: false
         debounce_seconds: 2  # Prevents event flooding
   rules:
     - name: Notify on file changes
