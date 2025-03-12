@@ -1,0 +1,13 @@
+---
+- name: Monitor /opt/ directory for changes
+  hosts: localhost
+  sources:
+    - ansible.eda.file_watch:
+        paths:
+          - /opt/
+  rules:
+    - name: Notify on file changes
+      condition: event.type == "modified" or event.type == "created" or event.type == "deleted"
+      action:
+        run_playbook:
+          name: notify_changes.yml
