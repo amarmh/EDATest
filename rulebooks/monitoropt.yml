@@ -6,6 +6,7 @@
         path: /mnt/
         recursive: false
         debounce_seconds: 5  # Prevents event flooding
+        ignore_regexes: ['.*\\.pytest.*', '.*__pycache__.*', '.*/.git.*']
   rules:
     - name: Notify on file changes
       condition: event.type in ["created"]
