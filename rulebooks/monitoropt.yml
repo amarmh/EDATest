@@ -3,7 +3,7 @@
   hosts: localhost
   sources:
     - ansible.eda.file_watch:
-        path: /opt/
+        path: /mnt/
         recursive: true
         debounce_seconds: 2  # Prevents event flooding
   rules:
