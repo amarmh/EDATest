@@ -3,12 +3,11 @@
   hosts: localhost
   sources:
     - ansible.eda.file_watch:
-        paths:
-          - /opt/
+        path: "/opt/"
   rules:
 ##---------------------------Folder Monitor Starts----------------------------  
     - name: Monitoring complete folder for any changes in file !!!
-      condition: event.type == "modified" or event.type == "created" or event.type == "deleted"
+      condition: event.type in ["modified", "created", "deleted"]
       action:
         run_job_template:
           name: Demo Job Template
