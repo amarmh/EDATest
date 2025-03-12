@@ -4,6 +4,8 @@
   sources:
     - ansible.eda.file_watch:
         path: "/opt/"
+        recursive: true
+
   rules:
 ##---------------------------Folder Monitor Starts----------------------------  
     - name: Monitoring complete folder for any changes in file !!!
