@@ -4,7 +4,7 @@
   sources:
     - name: thisis watchdog------
       ansible.eda.file_watch:
-        path: "/var/games/
+        path: "/var/games/"
         recursive: true
         ignore_regexes: ['.*\.pytest.*', '.*__pycache__.*', '.*/.git.*']
   rules:
