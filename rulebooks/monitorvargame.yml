@@ -4,13 +4,13 @@
   sources:
     - name: thisis watchdog------
       ansible.eda.file_watch:
-        path: "/var/games/"
+        path: /var/games/
         recursive: true
-        ignore_regexes: ['.*\.pytest.*', '.*__pycache__.*', '.*/.git.*']
+        ignore_regexes: [.*\.pytest.*, .*__pycache__.*, .*/.git.*]
   rules:
     - name: Notify on file changes
       condition: event.type in ["created"]
       action:
         run_job_template:
           name: Demo Job Template
-          organization: "Default"
+          organization: Default

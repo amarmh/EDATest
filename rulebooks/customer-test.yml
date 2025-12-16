@@ -1,9 +1,10 @@
+---
 - name: Listen for Grafana Webhooks
   hosts: all
 
   sources:
     - ansible.eda.webhook:
-      host: 0.0.0.0
+      host: "0.0.0.0"
       port: 5000
 
   rules:
@@ -12,4 +13,4 @@
 
       action:
         debug:
-          msg: "Received"
+          msg: Received
