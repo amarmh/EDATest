@@ -5,17 +5,17 @@
     - name: Monitor JFrog folder for any changes or files deployed - watchdog - Modified for standard folder
       ansible.eda.file_watch:
         #yes path: "/tmp/jfrog_monitor/standard/"
-        path: "/opt/"
+        path: /opt/
         recursive: true
-        put_nowait: false  # Makes queue insertion wait instead of failing when full
-        debounce: 3  # Wait 3 seconds before processing similar consecutive events
-        rate_limit_per_minute: 30  # Limit to 30 events per minute
+        put_nowait: false # Makes queue insertion wait instead of failing when full
+        debounce: 3 # Wait 3 seconds before processing similar consecutive events
+        rate_limit_per_minute: 30 # Limit to 30 events per minute
         #put_nowait: 0
-        ignore_regexes: ['.*\.pytest.*', '.*__pycache__.*', '.*/.git.*']
+        ignore_regexes: [.*\.pytest.*, .*__pycache__.*, .*/.git.*]
 
 
   rules:
-##---------------------------Folder Monitor Starts----------------------------  
+    ##---------------------------Folder Monitor Starts----------------------------  
     - name: Monitoring complete folder for any changes in file !!!
       condition: event.type == "FileModifiedEvent"
       action:
@@ -26,6 +26,5 @@
           job_args:
             extra_vars:
               env: dev
-              
-            
+
 ##---------------------------Folder Monitor Starts----------------------------
